@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/comfortaa"
             android:maxLines="2"
-            android:text='@{String.format("%.2f", stock.latestPrice)}'
+            android:text='@{String.format("$%.2f", stock.latestPrice)}'
             android:textColor="@color/black"
             android:textSize="@dimen/text_size_medium"
             android:textStyle="bold"
