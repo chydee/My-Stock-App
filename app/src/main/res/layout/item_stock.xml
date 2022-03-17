@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="stock"
+            type="com.chidi.mystockapp.domain.StockItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/stockLogoCard"
+            android:layout_width="@dimen/stock_logo_card_dimension"
+            android:layout_height="@dimen/stock_logo_card_dimension"
+            android:layout_margin="@dimen/margin_almost_small"
+            app:cardBackgroundColor="@color/offWhite"
+            app:cardCornerRadius="@dimen/stcok_logo_card_corners"
+            app:cardElevation="@dimen/stock_logo_card_elevation"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/stockLogo"
+                srcUrl="@{stock.logo}"
+                android:layout_width="@dimen/stock_logo_dimension"
+                android:layout_height="@dimen/stock_logo_dimension"
+                android:layout_gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_launcher_background" />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/stockTicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_medium"
+            android:fontFamily="@font/comfortaa"
+            android:text="@{stock.ticker}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_xtra_medium"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/stockLogoCard"
+            app:layout_constraintTop_toTopOf="@+id/stockLogoCard"
+            tools:text="SPOT" />
+
+        <TextView
+            android:id="@+id/stockCurrentPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/comfortaa"
+            android:maxLines="2"
+            android:text='@{String.format("%.2f", stock.latestPrice)}'
+            android:textColor="@color/black"
+            android:textSize="@dimen/text_size_medium"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/stockTicker"
+            app:layout_constraintEnd_toEndOf="@+id/stockDayDelta"
+            app:layout_constraintTop_toTopOf="@+id/stockTicker"
+            tools:text="$ 6.17" />
+
+        <TextView
+            android:id="@+id/stockCompanyName"
+            android:layout_width="@dimen/zero"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_tiny"
+            android:fontFamily="@font/comfortaa"
+            android:maxLines="1"
+            android:text="@{stock.name}"
+            android:textColor="@color/grey"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@+id/stockLogoCard"
+            app:layout_constraintEnd_toStartOf="@+id/stockDayDelta"
+            app:layout_constraintStart_toStartOf="@id/stockTicker"
+            app:layout_constraintTop_toBottomOf="@id/stockTicker"
+            tools:text="Spotify" />
+
+        <TextView
+            android:id="@+id/stockDayDelta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/green"
+            android:textSize="@dimen/text_size_medium"
+            app:layout_constraintBottom_toBottomOf="@+id/stockCompanyName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/stockCompanyName"
+            tools:text="+$55(1,15%)" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
