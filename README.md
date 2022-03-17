@@ -13,8 +13,8 @@ Build an app with Kotlin that displays the list of stocks from a public Stocks I
 # :scroll: Description
 
 <p align="center">
-  <img src="screens/stock_home.jpeg" alt="Home Screen" width="30%" hspace="15"/>
-  <img src="screens/stock_details.jpeg" alt="Stock Detail Screen" width="30%" hspace="15"/>
+  <img src="screens/stock_home.png" alt="Home Screen" width="30%" hspace="15"/>
+  <img src="screens/stock_details.png" alt="Stock Detail Screen" width="30%" hspace="15"/>
 </p>
 
 ## Installation
